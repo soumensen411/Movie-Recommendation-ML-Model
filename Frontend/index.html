@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CineMatch AI — Find your next film</title>
+  <meta name="description" content="Choose a film and discover five recommendations ranked by cinematic similarity.">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-state="empty">
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="brand" href="./" aria-label="CineMatch AI home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>CineMatch<span class="brand-muted"> AI</span></span>
+      </a>
+      <div class="top-note"><span class="status-dot"></span> Film discovery, by similarity</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro wrap" aria-labelledby="hero-title">
+      <div class="intro-text">
+        <p class="kicker"><span class="kicker-line"></span> Your next film starts here</p>
+        <h1 id="hero-title">Find the film that feels <em>just right</em></h1>
+        <p class="lede">Start with a movie you love. CineMatch finds five films with the closest connections in story, genre, keywords, cast and director.</p>
+
+        <form class="finder" id="finder" autocomplete="off" novalidate>
+          <div class="search-label">Choose a starting film</div>
+          <div class="search-row">
+            <div class="combo">
+              <label class="sr" for="movie">Search the movie catalog</label>
+              <svg class="combo-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20 20-4-4"/></svg>
+              <input id="movie" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="listbox" placeholder="Search a movie title" spellcheck="false" autocapitalize="off">
+              <kbd class="keycap" aria-hidden="true">/</kbd>
+              <ul class="listbox" id="listbox" role="listbox" aria-label="Movies" hidden></ul>
+            </div>
+            <button class="go" type="submit">
+              <span>Find similar films</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <p class="field-msg" id="msg" role="alert"></p>
+          <p class="search-hint">Press <kbd>↑</kbd> <kbd>↓</kbd> to browse and <kbd>Enter</kbd> to select</p>
+        </form>
+      </div>
+
+      <div class="visual-side">
+        <div class="visual-caption"><span>From the catalog</span><span class="visual-count">A world of stories</span></div>
+        <div class="wall" id="wall" role="group" aria-label="Pick a film from the catalog"></div>
+        <div class="visual-foot"><span class="visual-rule"></span><span>One film can lead to another</span></div>
+      </div>
+    </section>
+
+    <section class="results wrap" id="results" hidden>
+      <div class="results-heading">
+        <div class="because" aria-live="polite">
+          <p class="eyebrow">Recommendations based on</p>
+          <h2 id="because-title"></h2>
+        </div>
+        <p class="results-note">Five films, ranked by similarity</p>
+      </div>
+
+      <ol class="grid" id="grid"></ol>
+
+      <section class="source" aria-labelledby="source-title">
+        <div class="source-poster" id="source-poster"></div>
+        <div class="source-body">
+          <p class="eyebrow">Your starting point</p>
+          <h2 id="source-title"></h2>
+          <p class="desc" id="source-desc"></p>
+          <dl class="facts" id="facts"></dl>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <span>Made for people who love the next good film</span>
+      <span>Film data and posters from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</span>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
