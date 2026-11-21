@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" role="img" aria-labelledby="how-it-works-title how-it-works-desc" xmlns:c2pa="http://c2pa.org/manifest">
+<title id="how-it-works-title">How CineMatch AI works</title>
+<desc id="how-it-works-desc">The browser sends a movie title to a Flask server, which computes cosine similarity against tag vectors built from movies_list.pkl and returns the top five matches, while posters come from TMDB.</desc>
+<defs>
+<marker id="hiw-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8a69f"/></marker>
+<marker id="hiw-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e6a94d"/></marker>
+<marker id="hiw-link" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7fa6c9"/></marker>
+<style>
+  .eyebrow{font:500 11px ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.14em;fill:#a8a69f}
+  .h1{font:400 30px "Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;letter-spacing:-.01em;fill:#ecebe7}
+  .name{font:600 14px "Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#ecebe7}
+  .sub{font:400 11px ui-monospace,"SF Mono",Menlo,Consolas,monospace;fill:#a8a69f}
+  .tag{font:500 9px ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.08em}
+  .lbl{font:500 10px ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.04em;fill:#a8a69f}
+  .note{font:italic 400 15px "Instrument Serif","Iowan Old Style",Georgia,serif;fill:#85837c}
+  .leg{font:400 12px "Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#a8a69f}
+</style>
+</defs>
+<rect width="960" height="640" fill="#0e0e0f"/>
+<text class="eyebrow" x="40" y="44">HOW IT WORKS</text>
+<text class="h1" x="40" y="82">From a movie title to five matches</text>
+<path d="M232,284 H360" fill="none" stroke="#a8a69f" stroke-width="1.5" marker-end="url(#hiw-muted)"/>
+<path d="M360,316 H232" fill="none" stroke="#a8a69f" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#hiw-muted)"/>
+<path d="M552,284 H728" fill="none" stroke="#e6a94d" stroke-width="1.5" marker-end="url(#hiw-acc)"/>
+<path d="M728,316 H552" fill="none" stroke="#a8a69f" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#hiw-muted)"/>
+<path d="M824,200 V256" fill="none" stroke="#a8a69f" stroke-width="1.5" marker-end="url(#hiw-muted)"/>
+<path d="M488,344 V436 Q488,444 496,444 H728" fill="none" stroke="#7fa6c9" stroke-width="1.5" marker-end="url(#hiw-link)"/>
+<path d="M728,476 H432 Q424,476 424,468 V344" fill="none" stroke="#7fa6c9" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#hiw-link)"/>
+<path d="M136,344 V528 Q136,536 144,536 H816 Q824,536 824,528 V504" fill="none" stroke="#7fa6c9" stroke-width="1.5" marker-end="url(#hiw-link)"/>
+<rect x="245" y="260" width="102" height="16" fill="#0e0e0f"/><text class="lbl" x="296" y="272" text-anchor="middle">GET /RECOMMEND</text>
+<rect x="248" y="324" width="95" height="16" fill="#0e0e0f"/><text class="lbl" x="296" y="336" text-anchor="middle">TOP 5 + SCORE</text>
+<rect x="618" y="260" width="44" height="16" fill="#0e0e0f"/><text class="lbl" x="640" y="272" text-anchor="middle">TITLE</text>
+<rect x="618" y="324" width="44" height="16" fill="#0e0e0f"/><text class="lbl" x="640" y="336" text-anchor="middle">TOP 5</text>
+<rect x="830" y="220" width="76" height="16" fill="#0e0e0f"/><text class="lbl" x="836" y="232" text-anchor="start">4,806 ROWS</text>
+<rect x="564" y="420" width="95" height="16" fill="#0e0e0f"/><text class="lbl" x="612" y="432" text-anchor="middle">GET /MOVIE/ID</text>
+<rect x="559" y="484" width="82" height="16" fill="#0e0e0f"/><text class="lbl" x="600" y="496" text-anchor="middle">POSTER PATH</text>
+<rect x="436" y="512" width="89" height="16" fill="#0e0e0f"/><text class="lbl" x="480" y="524" text-anchor="middle">POSTER IMAGE</text>
+<rect x="40" y="256" width="192" height="88" rx="6" fill="#0e0e0f"/>
+<rect x="40" y="256" width="192" height="88" rx="6" fill="#151516" stroke="#a8a69f" stroke-width="1"/>
+<rect x="56" y="268" width="46" height="14" rx="2" fill="none" stroke="#a8a69f" stroke-opacity=".55"/>
+<text class="tag" x="79" y="278" text-anchor="middle" fill="#a8a69f">CLIENT</text>
+<text class="name" x="56" y="302">Browser</text>
+<text class="sub" x="56" y="318">index.html, app.js</text>
+<text class="sub" x="56" y="332">search, render cards</text>
+<rect x="360" y="256" width="192" height="88" rx="6" fill="#0e0e0f"/>
+<rect x="360" y="256" width="192" height="88" rx="6" fill="#151516" stroke="#ecebe7" stroke-width="1"/>
+<rect x="376" y="268" width="29" height="14" rx="2" fill="none" stroke="#a8a69f" stroke-opacity=".55"/>
+<text class="tag" x="390" y="278" text-anchor="middle" fill="#a8a69f">API</text>
+<text class="name" x="376" y="302">Flask server</text>
+<text class="sub" x="376" y="318">server.py</text>
+<text class="sub" x="376" y="332">/api/recommend</text>
+<rect x="728" y="112" width="192" height="88" rx="6" fill="#0e0e0f"/>
+<rect x="728" y="112" width="192" height="88" rx="6" fill="#1d1d1f" stroke="#85837c" stroke-width="1"/>
+<rect x="744" y="124" width="40" height="14" rx="2" fill="none" stroke="#a8a69f" stroke-opacity=".55"/>
+<text class="tag" x="764" y="134" text-anchor="middle" fill="#a8a69f">STORE</text>
+<text class="name" x="744" y="158">Tag vectors</text>
+<text class="sub" x="744" y="174">movies_list.pkl</text>
+<text class="sub" x="744" y="188">CountVectorizer(5000)</text>
+<rect x="728" y="256" width="192" height="88" rx="6" fill="#0e0e0f"/>
+<rect x="728" y="256" width="192" height="88" rx="6" fill="#2a2114" stroke="#e6a94d" stroke-width="1.5"/>
+<rect x="744" y="268" width="51" height="14" rx="2" fill="none" stroke="#e6a94d" stroke-opacity=".55"/>
+<text class="tag" x="770" y="278" text-anchor="middle" fill="#e6a94d">COMPUTE</text>
+<text class="name" x="744" y="302">Cosine similarity</text>
+<text class="sub" x="744" y="318">selected row vs all rows</text>
+<text class="sub" x="744" y="332">sort, top 5, score %</text>
+<rect x="728" y="416" width="192" height="88" rx="6" fill="#0e0e0f"/>
+<rect x="728" y="416" width="192" height="88" rx="6" fill="#0e0e0f" stroke="#7fa6c9" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="744" y="428" width="57" height="14" rx="2" fill="none" stroke="#a8a69f" stroke-opacity=".55"/>
+<text class="tag" x="772" y="438" text-anchor="middle" fill="#a8a69f">EXTERNAL</text>
+<text class="name" x="744" y="462">TMDB</text>
+<text class="sub" x="744" y="478">api.themoviedb.org</text>
+<text class="sub" x="744" y="492">image.tmdb.org</text>
+<text class="note" x="704" y="160" text-anchor="end">built once at startup</text>
+<text class="note" x="728" y="376">computed on every request</text>
+<line x1="40" y1="576" x2="920" y2="576" stroke="#2a2a2b"/>
+<rect x="40" y="594" width="12" height="12" rx="2" fill="#2a2114" stroke="#e6a94d" stroke-width="1.5"/>
+<text class="leg" x="60" y="604">Focal step</text>
+<line x1="176" y1="600" x2="204" y2="600" stroke="#a8a69f" stroke-width="1.5" marker-end="url(#hiw-muted)"/>
+<text class="leg" x="212" y="604">Request</text>
+<line x1="296" y1="600" x2="324" y2="600" stroke="#a8a69f" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#hiw-muted)"/>
+<text class="leg" x="332" y="604">Response</text>
+<line x1="424" y1="600" x2="452" y2="600" stroke="#7fa6c9" stroke-width="1.5" marker-end="url(#hiw-link)"/>
+<text class="leg" x="460" y="604">External call</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo2ZGI1ODhkYi1lOWQzLTQ4MjktOWJiMS05NDNjMjZmMzNjNmUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaL1cyd44NFIw8f7Y5P62X/MAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDphMGNhNWZmYy0zNGE4LTRiOGYtYWQxYi04MmE1NzY5YTRhM2NscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoZw/MffaVjP0pasqsL6sXRgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggqA2PLJz8Wz8ICs+Jn1x+FaUlQYCWmufMDE4+bby7DUykZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaGRAellR4er6inOCXVdDgMoAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIDwZA/doO60Iq3q2wSOWikEE9PTsGRvUEbGnNGeTI+U6ZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GR4JZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjZkYjU4OGRiLWU5ZDMtNDgyOS05YmIxLTk0M2MyNmYzM2M2ZS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjRlOWQzYjhhLTI4OGUtNDllNi1hMTAxLTVjZjY2MDJjMTYyYnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCoDY8snPxbPwgKz4mfXH4VpSVBgJaa58wMTj5tvLsNTKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgghJystJUplMh8ucmboJzndMQ3HihqVDi0rJKAH1tW3PuiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggigVjyFO1DdieryLyozLW7iVNqRd67iUNQId4kvLP8zR0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQKAFWNzEk8hz0ent2eLin1MbM4b5/u/Jq/iJK59BQVl0Xs6JQCIZ9//quBp90N1b/W6d6MNTyiapD7u1nzWVvdA=</c2pa:manifest></metadata></svg>
