@@ -1,4 +1,4 @@
-# CineMatch AI
+# CineMatch (movie recommender system)
 
 Pick a movie, get the five most similar ones. Similarity is calculated from each film's plot overview, genres, keywords, cast and director.
 
